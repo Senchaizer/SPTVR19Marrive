@@ -43,8 +43,11 @@ class App {
             sum += numbers[i];
             System.out.printf("%4d",numbers[i]);
         }
+        
         System.out.println();
-        System.out.println("Среднее арифметическое  без учета минимального (10) и максимального (84) числа:  39.78 ");
+        System.out.println("Среднее арифметическое без учёта минимального(+min+) и максимального(+max+)");
+        System.out.println((double)(sum-min-max)/(numbers.length - 2));
         System.out.println("--- end MyArray ---");
-    }
+    }       
+
 }
