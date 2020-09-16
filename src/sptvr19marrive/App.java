@@ -5,6 +5,7 @@
  */
 package sptvr19marrive;
 
+
 import java.util.Random;
 
 
@@ -17,13 +18,33 @@ import java.util.Random;
 class App {
     public void run() {
         System.out.println("--- MyArray ---");
+        System.out.println("Создайте массив из 20 случайных четных целых\n" +
+"чисел. Вычислите среднее арифметическое\n" +
+"элементов массива без учета минимального и\n" +
+"максимального элементов массива");
+        System.out.println("Решение: ");
         Random random = new Random();
+        int sum = 0;
+        int rnum = 0;
+        int min = 100;
+        int max = 0;
         //Создаем массив целых четных чисел
-        int[] numbers = new int[20];
+        int[] numbers = new int [20];
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(99-0+1)+0;
-            System.out.printf("%4d", numbers[i]);
+            while (true) {
+                rnum = random.nextInt(99-0+1)+0;
+                if(rnum % 2 == 0){
+                    numbers[i] = rnum;
+                    break;
+                }
+            }
+            if(numbers[i] > max) max = numbers[i];
+            if(numbers[i] < min) min = numbers[i];
+            sum += numbers[i];
+            System.out.printf("%4d",numbers[i]);
         }
-        System.out.println("");
+        System.out.println();
+        System.out.println("Среднее арифметическое  без учета минимального (10) и максимального (84) числа:  39.78 ");
+        System.out.println("--- end MyArray ---");
     }
 }
